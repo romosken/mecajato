@@ -28,7 +28,7 @@ def save_customer(request):
             email=email, 
             document=document
         )
-    customer.validate_constraints() #todo overwrite the form with ModelForm from django
+    customer.validate_constraints() #TODO overwrite the form with ModelForm from django
     try:
         customer.save()
     except IntegrityError as e:
