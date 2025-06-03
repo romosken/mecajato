@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'customers/css/customers.css' %}">
+{% endblock %}
+
+{% block 'dashboard' %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md card-dashboard">
+                <p class="text-card">Add Customer</p>
+            </div>
+            <div class="col-md card-dashboard">
+                <p class="text-card">Update Customer</p>
+            </div>
+        </div>
+
+        <div class="adicionar-cliente">
+      <form action="{% url 'customers' %}" method="POST">{% csrf_token %}
+      
+      <div class="row">
+              <div class="col-md">
+                  <p>Name:</p>
+                  <input type="text" class="form-control" placeholder="First name" name="name">
+              </div>
+              <div class="col-md">
+                  <p>Surname:</p>
+                  <input type="text" class="form-control" placeholder="Surname" name="surname">
+              </div>
+          </div>
+          <br>
+          <p>E-mail:</p>
+          <input type="email" class="form-control" placeholder="name@email.com" name="email">
+          <br>
+          <p>Document:</p>
+          <input type="text" class="form-control" placeholder="___.___.___-__" name="document">
+          <hr style="background-color:gray;">
+          <div class="add-carros">
+              <h3>Cars</h3>
+              <span class="btn-add-carros" onclick="add_car()">+ add a car</span>
+
+              <div id="form-carro">
+
+              </div>
+
+          </div>
+
+          <br>
+          <input type="submit" value="Send" class="btn-principal">
+
+      </form>
+  </div>
+    </div>
+
+    <script src="{% static 'customers/js/customers.js' %}"></script>
+
+{% endblock %}
